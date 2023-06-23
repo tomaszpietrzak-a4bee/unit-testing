@@ -14,6 +14,7 @@ describe('Authorization HOC', () => {
     const wrapper = shallow(<AuthorizedComponent authorized={false} />);
     expect(wrapper.find(restrictedContent).exists()).toBe(false);
   });
+  
   test('is empty render', () => {
     const wrapper = shallow(<AuthorizedComponent authorized={false} />);
     expect(wrapper.isEmptyRender()).toBe(true)
