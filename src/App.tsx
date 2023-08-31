@@ -1,11 +1,12 @@
-import './App.css';
-import TaskOne from './components/taskOne/TaskOne';
-
+import "./App.css";
+import AuthButtons from "./components/AuthButtons/AuthButtons";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <TaskOne/>
+      <Navbar />
+      <AuthButtons />
     </div>
   );
 }

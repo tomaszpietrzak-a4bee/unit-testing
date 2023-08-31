@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  inset: 0 0 auto 0;
+  gap: 1rem;
+  place-items: center;
+  place-content: center;
+  background-color: #646cff;
+
+  .link {
+    padding: 10px;
+    color: #242424;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
