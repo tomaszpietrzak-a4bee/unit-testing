@@ -6,24 +6,26 @@ beforeEach(() => {
   fetchMock.resetMocks();
 });
 
-it("should render modified (without symbol -) data from fetch", async () => {
-  fetchMock.mockResponseOnce(
-    JSON.stringify({
-      address: {
-        zipcode: "123-45",
-      },
-    })
-  );
+describe("User zip code", () => {
+  it("should render modified (without symbol -) data from fetch", async () => {
+    fetchMock.mockResponseOnce(
+      JSON.stringify({
+        address: {
+          zipcode: "123-45",
+        },
+      })
+    );
 
-  render(<Users />);
+    render(<Users />);
 
-  expect(await screen.findByText("12345")).toBeInTheDocument();
-});
+    expect(await screen.findByText("12345")).toBeInTheDocument();
+  });
 
-it("should handle fetch error", async () => {
-  fetchMock.mockRejectOnce(new Error("Fetch failed"));
+  it("should handle fetch error", async () => {
+    fetchMock.mockRejectOnce(new Error("Fetch failed"));
 
-  render(<Users />);
+    render(<Users />);
 
-  expect(await screen.findByText("Fetch failed")).toBeInTheDocument();
+    expect(await screen.findByText("Fetch failed")).toBeInTheDocument();
+  });
 });
