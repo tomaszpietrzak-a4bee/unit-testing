@@ -1,12 +1,10 @@
 import "./App.css";
-import AuthButtons from "./components/AuthButtons/AuthButtons";
-import Navbar from "./components/navbar/Navbar";
+import Users from "./components/users/Users";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <AuthButtons />
+      <Users />
     </div>
   );
 }
