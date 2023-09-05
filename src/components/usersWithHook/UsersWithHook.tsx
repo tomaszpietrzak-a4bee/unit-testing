@@ -11,9 +11,7 @@ export type User = {
 };
 
 const UsersWithHook = () => {
-  const { zipcode, error } = useFetchZipcode(
-    "https://jsonplaceholder.typicode.com/users/1"
-  );
+  const { zipcode, error } = useFetchZipcode();
 
   return (
     <div className={cx("users")}>

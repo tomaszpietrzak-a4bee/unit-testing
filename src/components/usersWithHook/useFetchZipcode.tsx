@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useFetchZipcode(url: string) {
+function useFetchZipcode() {
   const [zipcode, setZipcode] = useState<any>(null);
   const [loading, setLoading] = useState<null | boolean>(null);
   const [error, setError] = useState<null | string>(null);
@@ -22,7 +22,7 @@ function useFetchZipcode(url: string) {
           setError(error.message);
         } else setError("Something went wrong");
       });
-  }, [url]);
+  }, []);
 
   return { zipcode, loading, error };
 }
