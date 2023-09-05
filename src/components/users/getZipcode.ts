@@ -17,7 +17,6 @@ export const getZipcode = async () => {
   } catch (error) {
     if (error instanceof Error) {
       throw Error(error.message);
-    }
-    throw Error("Something went wrong");
+    } else throw Error("Something went wrong");
   }
 };

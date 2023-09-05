@@ -1,0 +1,22 @@
+.users {
+  position: fixed;
+  inset: 0 0 auto 0;
+  gap: 1rem;
+  place-items: center;
+  place-content: center;
+  background-color: #646cff;
+
+  .title {
+    color: white;
+  }
+
+  .zipcode {
+    .number {
+      color: #fff;
+    }
+  }
+
+  .error {
+    color: red;
+  }
+}

@@ -11,7 +11,7 @@ export type User = {
   };
 };
 
-const Navbar = () => {
+const Users = () => {
   const [zipcode, setZipcode] = useState<null | string>(null);
   const [error, setError] = useState<null | string>(null);
 
@@ -35,4 +35,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Users;
