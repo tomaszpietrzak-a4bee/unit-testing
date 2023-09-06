@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20px 0;
+  border: 2px solid red;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+}
+
+.message {
+  border: 2px solid green;
+  background-color: lightgreen;
+  grid-column: 2/4;
+}
+
+.start {
+  grid-column: 2;
+}
+
+.stop {
+  grid-column: 3;
+}
