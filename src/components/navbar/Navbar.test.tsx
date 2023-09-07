@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { useAuthStore, UserRights } from "../../store/authStore";
+import { useAuthStore } from "../../store/authStore";
+import { UserRights } from "../../store/AuthTypes";
 
 import Navbar from "./Navbar";
 

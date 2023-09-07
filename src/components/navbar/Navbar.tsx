@@ -1,9 +1,11 @@
 import { useAuthStore } from "../../store/authStore";
 import classnames from "classnames/bind";
 import styles from "./Navbar.module.scss";
+import { UserRights } from "../../store/AuthTypes";
+
 const cx = classnames.bind(styles);
 
-const routes = [
+const routes: { title: string; restrictions: UserRights[] }[] = [
   {
     title: "Login",
     restrictions: ["unauthorized"],
@@ -27,13 +29,13 @@ const routes = [
 ];
 
 const Navbar = () => {
-  const auth = useAuthStore((state) => state);
+  const userRights = useAuthStore((state) => state.userRights);
 
   return (
     <nav className={cx("navbar")}>
       {routes.map(
         ({ restrictions, title }) =>
-          restrictions.includes(auth.userRights) && (
+          restrictions.includes(userRights) && (
             <span className={cx("link")} key={title}>
               {title}
             </span>

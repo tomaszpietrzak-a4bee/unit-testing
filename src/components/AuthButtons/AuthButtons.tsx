@@ -1,6 +1,8 @@
-import { UserRights, useAuthStore } from "../../store/authStore";
 import classnames from "classnames/bind";
+import { useAuthStore } from "../../store/authStore";
 import styles from "./AuthButtons.module.scss";
+import type { UserRights } from "../../store/AuthTypes";
+
 const cx = classnames.bind(styles);
 
 const AuthButtons = () => {

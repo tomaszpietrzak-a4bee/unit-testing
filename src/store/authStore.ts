@@ -1,12 +1,5 @@
 import { create } from "zustand";
-
-export type UserRights = "unauthorized" | "user" | "admin";
-
-type AuthStore = {
-  userRights: UserRights;
-  authorize: (right: UserRights) => void;
-  unauthorize: () => void;
-};
+import { AuthStore } from "./AuthTypes";
 
 export const useAuthStore = create<AuthStore>()((set) => ({
   userRights: "unauthorized",
