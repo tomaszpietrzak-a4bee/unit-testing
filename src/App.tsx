@@ -1,5 +1,6 @@
 import "./App.css";
 import AuthButtons from "./components/AuthButtons/AuthButtons";
+import Calculator from "./components/Calculator/Calculator";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Navbar />
       <AuthButtons />
+      <Calculator />
     </div>
   );
 }
