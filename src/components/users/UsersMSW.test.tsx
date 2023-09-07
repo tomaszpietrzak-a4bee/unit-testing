@@ -3,9 +3,10 @@ import { render, screen } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
-const url = "https://jsonplaceholder.typicode.com/users/1";
+const URL = "https://jsonplaceholder.typicode.com/users/1";
+
 const server = setupServer(
-  rest.get(url, (req, res, ctx) => {
+  rest.get(URL, (req, res, ctx) => {
     return res(
       ctx.json({
         address: {
@@ -29,7 +30,7 @@ describe("User zip code with MSW", () => {
 
   it("should handle fetch error", async () => {
     server.use(
-      rest.get(url, (req, res, ctx) => {
+      rest.get(URL, (req, res, ctx) => {
         return res(ctx.status(500));
       })
     );
