@@ -6,7 +6,7 @@ beforeEach(() => {
   fetchMock.resetMocks();
 });
 
-describe("User zip code", () => {
+describe("User zip code with fetchMock", () => {
   it("should render modified (without symbol -) data from fetch", async () => {
     fetchMock.mockResponseOnce(
       JSON.stringify({
