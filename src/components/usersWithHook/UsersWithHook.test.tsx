@@ -1,38 +1,32 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import UsersWithHook from "./UsersWithHook";
-import Users from "../users/Users";
-import fetchMock from "jest-fetch-mock";
+import useFetchZipcode from "./useFetchZipcode";
 
-beforeEach(() => {
-  fetchMock.resetMocks();
-});
+jest.mock("./useFetchZipcode");
 
 describe("UsersWithHook", () => {
-  it("should render hook data", async () => {
-    jest
-      .spyOn(require("./useFetchZipcode"), "default")
-      .mockImplementation(() => ({
-        zipcode: 176342,
-        error: null,
-        loading: false,
-      }));
+  it("should render zipcode when there is no error", async () => {
+    (useFetchZipcode as jest.Mock).mockReturnValue({
+      zipcode: "12345",
+      error: null,
+      loading: false,
+    });
 
     render(<UsersWithHook />);
 
-    expect(await screen.findByText("176342")).toBeInTheDocument();
+    expect(screen.getByText("12345")).toBeInTheDocument();
   });
 
-  it("should render modified (without symbol -) data from fetch", async () => {
-    fetchMock.mockResponseOnce(
-      JSON.stringify({
-        address: {
-          zipcode: "123-45",
-        },
-      })
-    );
+  it("should render an error message when there is an error", async () => {
+    (useFetchZipcode as jest.Mock).mockReturnValue({
+      zipcode: null,
+      error: "An error occurred",
+      loading: false,
+    });
 
-    render(<Users />);
+    render(<UsersWithHook />);
 
-    expect(await screen.findByText("12345")).toBeInTheDocument();
+    expect(screen.getByText("An error occurred")).toBeInTheDocument();
   });
 });

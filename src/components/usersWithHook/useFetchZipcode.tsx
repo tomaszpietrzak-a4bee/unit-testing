@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function useFetchZipcode() {
-  const [zipcode, setZipcode] = useState<any>(null);
+  const [zipcode, setZipcode] = useState<null | string>(null);
   const [loading, setLoading] = useState<null | boolean>(null);
   const [error, setError] = useState<null | string>(null);
 
